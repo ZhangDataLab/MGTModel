@@ -1,13 +1,9 @@
 # MGT Model
 
-This is the source code for paper [xxx](xxx).
+This is the source code for paper [Help Me Screen: Analyzing and Predicting the Success of Start-ups in Dynamic Venture Capital Networks](xxx).
 
 ## Abstract
-Given start-ups' high-risk and high-reward nature, identifying the ones that will eventually succeed is literally a million-dollar question for practitioners in the \$63-billion venture capital industry and for policy makers worldwide, especially at an early stage such that investment returns can be exponential, and policies can better guide and promote the innovation ecosystem for long-term economic growth.
-
-
-Although various empirical studies and data-driven modeling work have been done, the predictive power of complex networks of stakeholders including venture capital investors, start-ups, and start-ups' managing members has not been thoroughly explored. We design an effective graph representation learning model where node embeddings are incrementally updated by unsupervised graph self-attention and optimized with fine-tuning by supervised link prediction and node classification. Our model uses network structures, temporal dependencies among time periods, and rich node-level attributes for success prediction. Overall, our method achieves superior performance on a real dataset of global venture capital investments, almost twice as human investors. In addition, our model excels at prediction for start-ups in industries such as healthcare and IT. Meanwhile, we shed light on the impacts on start-up success from observable factors including gender, education, and networking, which can be of value for practitioners as well as policy makers when they screen ventures of high growth potential.
-
+Most start-ups fail, and early-stage ventures face even lower survival rates. Identifying high-potential start-ups remains a critical challenge for venture capital (VC) investors and policymakers. While predictive models exist, the evolving relationships between VC investors, start-ups, and management teams in dynamic networks are underexplored. We propose a method to predict whether a start-up will succeed within five years of its first funding round. Using a 40-year global VC dataset, we model the VC ecosystem as a dynamic bipartite network linking start-ups to individuals (investors/managers). Our approach incrementally updates graph embeddings through unsupervised self-attention to incorporate new nodes, edges, and their neighbors. Node embeddings are further fine-tuned via link prediction and classification tasks, while temporal dependencies are captured to form sequential representations. The model identifies early-stage start-ups with twice the success likelihood of those chosen by professional investors. Key factors including networking and education align with VC literature. Additionally, we provide model complexity analysis and open-source our implementation to support practical applications and future research.
 
 ## Data
 
