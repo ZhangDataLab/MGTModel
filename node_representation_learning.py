@@ -69,12 +69,12 @@ parser.add_argument('--lr', type=float, default=1e-4,
                     help='Learning rate.')
 parser.add_argument('--batch_size', type=int, default=512,
                     help='batch size')
-parser.add_argument('--n_epoch_update', type=int, default=100,
+parser.add_argument('--n_epoch_update', type=int, default=50,
                     help='Number of epoch to init the embedding')
 parser.add_argument('--init_epoch', type=int, default=50)
 parser.add_argument('--n_epoch_init', type=int, default=50,
                     help='Number of the epoch to update the embedding')
-parser.add_argument('--n_epoch_predic', type=int, default=100,
+parser.add_argument('--n_epoch_predic', type=int, default=50,
                     help='Number of epoch to run')
 parser.add_argument('--lr_clf', type=float, default=1e-4,
                     help='Learning rate.')
@@ -155,7 +155,7 @@ if args.train_embed:
     '''
     if args.loss_type == 'LPNC':
         edges_t0 = graph_edges[0]
-        Node_type = sorted(ID2index.items(), key=lambda x: x[1], reverse=True)
+        Node_type = sorted(ID2index.items(), key=lambda x: x[1], reverse=False)
         Node_type = torch.tensor(
             [0.0 if 'P' in x[0] else 1 for x in Node_type]).to(args.gpus)
         node_set = TensorDataset(edges_t0.transpose(0,1))

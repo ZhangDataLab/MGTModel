@@ -73,12 +73,12 @@ parser.add_argument('--lr', type=float, default=1e-3,
                     help='Learning rate.')
 parser.add_argument('--batch_size', type=int, default=512,
                     help='batch size')
-parser.add_argument('--n_epoch_update', type=int, default=100,
+parser.add_argument('--n_epoch_update', type=int, default=50,
                     help='Number of epoch to init the embedding')
 parser.add_argument('--init_epoch', type=int, default=50)
 parser.add_argument('--n_epoch_init', type=int, default=20,
                     help='Number of the epoch to update the embedding')
-parser.add_argument('--n_epoch_predic', type=int, default=100,
+parser.add_argument('--n_epoch_predic', type=int, default=30,
                     help='Number of epoch to run')
 parser.add_argument('--lr_clf', type=float, default=1e-3,
                     help='Learning rate.')
@@ -135,8 +135,8 @@ for c, e in zip(new_companies, labels):
 
 save_path = args.Model_dir+'/'+args.task_name + '/'
 Model = torch.load(save_path+'Embedding.pth').cpu()#.to(args.gpus)
-args.embedding_dim = 120
-args.hidden_dim = 120
+args.embedding_dim = 32
+args.hidden_dim = 32
 print(args.embedding_dim,args.hidden_dim)
 predictor = Predict_model(
     args.embedding_dim, args.N_heads, args.n_layers_clf, args, args.dropout).to(args.gpus)
@@ -292,7 +292,7 @@ if args.dynamic_clf:
                 best_auc = auc_val
                 save_path = args.Model_dir+'/'+args.task_name + '/'
                 check_dir(save_path)
-                torch.save(Model, save_path+'Best_clf.pth')
+                torch.save(predictor, save_path+'Best_clf.pth')
                 ap = calc_apatk(test_prediction, test_label, month)
                 test_auc = roc_auc_score(test_label,test_prediction)
                 test_rep = classification_report(test_label,test_prediction)
