@@ -42,7 +42,7 @@ python node_representation_learning.py --embedding_dim 64 --n_layers_clf 3 --tra
 `startup_success_prediction.py` : Code that dynamically updates newly added nodes and predicts the success of startups
 
 ```python
-python startup_success_prediction.py --dynamic_clf --gpus 'cuda:0'
+python startup_success_prediction.py --dynamic_clf True --gpus 'cuda:0'
 ```
 
 **File Statement**
